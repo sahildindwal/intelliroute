@@ -1,0 +1,193 @@
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    & > button {
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #08c65a;
+        width: fit-content;
+        flex-shrink: 0;
+    }
+    & > button:hover {
+        background: #008e40;
+    }
+}
+
+.gridc {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.card {
+    position: relative;
+    height: fit-content;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 24px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.cardHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.locationCode {
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Create the gradient only on hover */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -1000%;
+    background: conic-gradient(from 0deg, #ffd685, #fb00ff, #ffde7a, #ffc813);
+    filter: blur(30px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+/* Hover effects */
+.card:hover {
+    transform: translateY(0px);
+    /* box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); */
+}
+
+/* Animate gradient only when hovered */
+.card:hover::before {
+    animation: spinGradient 6s linear infinite;
+    opacity: 0.4;
+}
+
+/* Smooth seamless rotation */
+@keyframes spinGradient {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.updateBtn {
+    background: #2950ff;
+}
+
+.deleteBtn {
+    background: #ff3b29;
+}
+
+.fail {
+    color: rgb(148, 0, 0);
+}
+
+.success {
+    color: rgb(9, 126, 7);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.input {
+    padding: 5px 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: border 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    /* border-color: #0066ff; */
+}
+.input::placeholder {
+    transition: opacity 0.2s ease;
+}
+.input:focus::placeholder {
+    opacity: 0;
+}
+
+/* Autofill fixes */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: black !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.buttonPopUp {
+    padding: 10px;
+    background: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background 0.25s ease;
+}
+
+.buttonPopUp:hover {
+    background: #004bcc;
+}

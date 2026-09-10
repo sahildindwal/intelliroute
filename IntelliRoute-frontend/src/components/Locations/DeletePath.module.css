@@ -1,0 +1,266 @@
+.container {
+    height: 100%;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+}
+
+.container h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+    font-weight: 700;
+    border-bottom: 3px solid #ef4444;
+    padding-bottom: 0.5rem;
+}
+
+.instruction {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-left: 4px solid #ef4444;
+    border-radius: 6px;
+}
+
+.noData {
+    text-align: center;
+    padding: 3rem;
+    color: #9ca3af;
+    font-size: 1.1rem;
+}
+
+.pathList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pathCard {
+    background: linear-gradient(135deg, #f9fafb, #ffffff);
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pathCard:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.pathCard.selected {
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.pathInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.pathNodes {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.nodeDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nodeLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nodeName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.nodeCode {
+    font-size: 0.85rem;
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+.pathArrow {
+    font-size: 1.5rem;
+    color: #10b981;
+    font-weight: 700;
+}
+
+.deleteBtn {
+    padding: 0.65rem 1.25rem;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+    flex-shrink: 0;
+}
+
+.deleteBtn:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.deleteBtn:active {
+    transform: translateY(0);
+}
+
+/* Confirmation Dialog */
+.confirmOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.confirmDialog {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.confirmDialog h3 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.confirmDialog p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.pathPreview {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border: 2px solid #ef4444;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #991b1b;
+    text-align: center;
+}
+
+.confirmButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.cancelBtn,
+.confirmBtn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancelBtn {
+    background: #f3f4f6;
+    color: #374151;
+    border: 2px solid #d1d5db;
+}
+
+.cancelBtn:hover {
+    background: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+.confirmBtn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.confirmBtn:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.confirmBtn:active,
+.cancelBtn:active {
+    transform: translateY(0);
+}
+
+.fail {
+    color: rgb(148, 0, 0);
+}
+
+.success {
+    color: rgb(9, 126, 7);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .pathNodes {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .pathArrow {
+        transform: rotate(90deg);
+    }
+
+    .pathInfo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .deleteBtn {
+        width: 100%;
+    }
+}

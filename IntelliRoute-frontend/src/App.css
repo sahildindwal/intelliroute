@@ -1,0 +1,9 @@
+main {
+    flex-grow: 1;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    background-color: #f9fafb;
+    overflow: hidden;
+    height: calc(100vh - 70px);
+}

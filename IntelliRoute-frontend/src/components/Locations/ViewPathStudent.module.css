@@ -1,0 +1,192 @@
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.leftSection {
+    width: 40%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f8faff 0%, #e8f0fe 100%);
+    border-radius: 12px;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 119, 255, 0.1);
+    overflow: hidden;
+}
+
+.mapImage {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.mapPlaceholder {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.1rem;
+    padding: 2rem;
+}
+
+.rightSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.button {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #08c65a;
+    border: none;
+    color: white;
+    padding: 0.65rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(8, 198, 90, 0.25);
+    width: fit-content;
+}
+
+.button:hover {
+    background: #008e40;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(8, 198, 90, 0.35);
+}
+
+.button p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.card {
+    width: 100%;
+    height: fit-content;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+    color: #000000;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 119, 255, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 119, 255, 0.12),
+        0 6px 12px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 119, 255, 0.25);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 250%;
+    height: 200%;
+    background: linear-gradient(
+        55deg,
+        rgba(0, 119, 255, 0.06) 0%,
+        rgba(255, 0, 225, 0.06) 50%,
+        rgba(8, 198, 90, 0.06) 100%
+    );
+    transform: translateX(-100%) skewX(-55deg);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+
+.card:hover::before {
+    transform: translateX(0%) skewX(-55deg);
+}
+
+.card * {
+    position: relative;
+    z-index: 1;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #0077ff, #ff00e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 0.8rem 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.distanceHighlight {
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.fail {
+    color: rgb(148, 0, 0);
+}
+
+.success {
+    color: rgb(9, 126, 7);
+}
+
+/* Scrollbar Styling */
+.cardContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cardContainer::-webkit-scrollbar-track {
+    background: rgba(0, 119, 255, 0.05);
+    border-radius: 4px;
+}
+
+.cardContainer::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #0077ff, #ff00e1);
+    border-radius: 4px;
+}
+
+.cardContainer::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #005fd4, #ce1bc5);
+}

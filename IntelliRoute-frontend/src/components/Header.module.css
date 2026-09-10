@@ -1,0 +1,245 @@
+:root {
+    --header-bg: rgba(255, 255, 255, 0.9);
+    --header-border: rgba(0, 119, 255, 0.15);
+    --primary-glow: #0077ff;
+    --secondary-glow: #00c6ff;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+}
+
+.header {
+    background: var(--header-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 0.6rem 2.5rem;
+    top: 0;
+    width: 100%;
+    position: sticky;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 4px 30px rgba(0, 200, 255, 0.1),
+                0 0 60px rgba(0, 119, 255, 0.05);
+}
+
+.appName {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.appName::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.appName:hover::after {
+    width: 100%;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow), #ff00e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.3));
+}
+
+.buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.button {
+    background: rgba(0, 119, 255, 0.08);
+    border: 1px solid rgba(0, 119, 255, 0.2);
+    color: var(--text-primary);
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 119, 255, 0.15), 
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button:hover {
+    background: rgba(0, 119, 255, 0.18);
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.25),
+                inset 0 0 10px rgba(0, 119, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 3px rgba(0, 119, 255, 0.3));
+}
+
+.button:hover .icon {
+    transform: scale(1.1);
+}
+
+.buttonText {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-secondary);
+}
+
+.button:hover .buttonText {
+    opacity: 1;
+    max-width: 100px;
+    margin-left: 0.3rem;
+}
+
+.homeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 119, 255, 0.2);
+    background: rgba(0, 119, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.homeButton:hover {
+    background: rgba(0, 119, 255, 0.18);
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.homeButton img {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0, 119, 255, 0.4));
+}
+
+.backButton {
+    padding: 0.4rem !important;
+    min-width: auto;
+}
+
+.backButton img {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0, 119, 255, 0.4));
+}
+
+.backButton:hover .buttonText {
+    display: none;
+    opacity: 0;
+    max-width: 0;
+}
+
+.fail {
+    color: #ff4757;
+}
+
+.success {
+    color: #10b981;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .buttons {
+        gap: 0.4rem;
+    }
+
+    .button {
+        padding: 0.5rem 0.7rem;
+        font-size: 1rem;
+    }
+
+    .buttonText {
+        display: none;
+    }
+
+    .homeButton img {
+        height: 28px;
+        width: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.4rem 0.8rem;
+    }
+
+    .title {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+    }
+
+    .button {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.95rem;
+    }
+
+    .icon {
+        font-size: 1.1rem;
+    }
+
+    .homeButton img {
+        height: 24px;
+        width: 24px;
+    }
+}
